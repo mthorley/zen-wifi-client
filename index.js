@@ -9,7 +9,7 @@ var crypto = require('crypto');
  *    access_token, refresh_token = authenticate(username, password)
  *    consumer_id = get_user_info(access_token)
  *    devices_id = get_devices(access_token, consumer_id)
- * One a device id has been derived it can be used to set the mode/temp:
+ * Once a device id has been derived, it can be used to set the mode/temp:
  *    set_mode_and_temperature(deviceid, mode, temp)
  */
 var ZenClient = function(config) {
@@ -26,7 +26,7 @@ var ZenClient = function(config) {
     var access_token = null;
     var refresh_token = null;
 
-    // tokens are protected and persisted outside of this client
+    // tokens are expected to be protected and persisted outside of this client
     self.set_tokens = function(access_token, refresh_token) {
         self.access_token = access_token;
         self.refresh_token = refresh_token;
@@ -169,7 +169,7 @@ var ZenClient = function(config) {
     self.request_with_access_token = function(method, path, post_data, callback) {
 
         if (self.access_token == null || self.refresh_token == null) {
-            callback("Invalid tokens", null);
+            callback("No available tokens", null);
             return;
         }
 
