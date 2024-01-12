@@ -1,4 +1,4 @@
-# zen-wifi-client
+# zenwifi-client
 Zen Wifi Thermostat API client
 
-Basic Node api-client to drive https://store.zenthermostat.com/products/zen-thermostat-wifi-edition
+Basic Node api-client to drive https://zenecosystems.com/home/zenthermostat/
